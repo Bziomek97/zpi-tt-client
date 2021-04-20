@@ -1,4 +1,4 @@
-name: Build & Push to artifactory
+name: ZPI Twitter Client Mainline
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  build:
+  build-and-push-to-artifactory:
     runs-on: ubuntu-latest
     
     steps:
@@ -35,5 +35,5 @@ jobs:
           IMAGE_NAME: zpi-twitter-client
         with:
           push: true
-          tags: zpitwitteranalysis.jfrog.io/zpi/zpi-twitter-client:latest
+          tags: $ARTIFACTORY_URL/$IMAGE_NAME:latest, $ARTIFACTORY_URL/$IMAGE_NAME:$IMAGE_TAG
 
