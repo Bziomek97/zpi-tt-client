@@ -17,7 +17,9 @@ jobs:
         env:
           IMAGE_TAG: ${{ github.sha }}
           ARTIFACTORY_URL: zpitwitteranalysis.jfrog.io/zpi/client
+          IMAGE_NAME: zpiTwitterClient
         run: |
-            docker build zpitwitteranalysis.jfrog.io/zpi/client/test:$IMAGE_TAG .
-            docker push zpitwitteranalysis.jfrog.io/zpi/client/test:$IMAGE_TAG
+            docker build -t $ARTIFACTORY_URL/$IMAGE_NAME:$IMAGE_TAG .
+            docker push $ARTIFACTORY_URL/$IMAGE_NAME:$IMAGE_TAG 
+            echo "Obraz zostal zbudowany i spushowany do: $ARTIFACTORY_URL/$IMAGE_NAME:$IMAGE_TAG"
           
