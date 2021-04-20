@@ -29,11 +29,7 @@ jobs:
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
-        env:
-          IMAGE_TAG: ${{ github.sha }}
-          ARTIFACTORY_URL: zpitwitteranalysis.jfrog.io/zpi
-          IMAGE_NAME: zpi-twitter-client
         with:
           push: true
-          tags: $ARTIFACTORY_URL/$IMAGE_NAME:latest, $ARTIFACTORY_URL/$IMAGE_NAME:$IMAGE_TAG
+          tags: zpitwitteranalysis.jfrog.io/zpi/zpi-twitter-client:latest, zpitwitteranalysis.jfrog.io/zpi/zpi-twitter-client:${{ github.sha }}
 
