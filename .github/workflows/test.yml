@@ -16,10 +16,15 @@ jobs:
       - name: build and push
         env:
           IMAGE_TAG: ${{ github.sha }}
-          ARTIFACTORY_URL: zpitwitteranalysis.jfrog.io/zpi/client
+          ARTIFACTORY_URL: zpitwitteranalysis.jfrog.io/zpi
           IMAGE_NAME: zpi-twitter-client
         run: |
-            docker build -t $ARTIFACTORY_URL/$IMAGE_NAME:$IMAGE_TAG .
-            docker push $ARTIFACTORY_URL/$IMAGE_NAME:$IMAGE_TAG 
+            docker login zpitwitteranalysis.jfrog.io
+            echo "Building image"
+            docker build -t $ARTIFACTORY_URL/$IMAGE_NAME:$IMAGE_TAG . > /dev/null
+            echo "Taging image as latest"
+            docker tag $ARTIFACTORY_URL/$IMAGE_NAME:$IMAGE_TAG $ARTIFACTORY_URL/$IMAGE_NAME:latest > /dev/null
+            echo "Push image"
+            docker push $ARTIFACTORY_URL/$IMAGE_NAME:$IMAGE_TAG > /dev/null
             echo "Obraz zostal zbudowany i spushowany do: $ARTIFACTORY_URL/$IMAGE_NAME:$IMAGE_TAG"
           
