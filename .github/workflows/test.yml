@@ -35,5 +35,5 @@ jobs:
           IMAGE_NAME: zpi-twitter-client
         with:
           push: true
-          tags: "$ARTIFACTORY_URL/$IMAGE_NAME:$IMAGE_TAG $ARTIFACTORY_URL/$IMAGE_NAME:latest"
+          tags: $ARTIFACTORY_URL/$IMAGE_NAME:$IMAGE_TAG $ARTIFACTORY_URL/$IMAGE_NAME:latest
 
