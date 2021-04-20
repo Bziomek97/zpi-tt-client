@@ -1,0 +1,22 @@
+name: Build & Push to artifactory
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - uses: jfrog/setup-jfrog-cli@v1
+        env:
+          JF_ARTIFACTORY_1: ${{ secrets.JFROG_API }}
+      - run: |
+          # Ping the server
+          jfrog rt ping
+          
