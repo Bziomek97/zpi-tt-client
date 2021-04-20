@@ -13,9 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - uses: jfrog/setup-jfrog-cli@v1.1.4
+      - name: build and push
         env:
-          JF_ARTIFACTORY_1: ${{ secrets.JF_ARTIFACTORY_SECRET_1 }}
-      - run: |
-          jfrog rt ping
+          IMAGE_TAG: ${{ github.sha }}
+          ARTIFACTORY_URL: zpitwitteranalysis.jfrog.io/zpi/client
+        run: |
+            docker build zpitwitteranalysis.jfrog.io/zpi/client/test:$IMAGE_TAG
+            docker push zpitwitteranalysis.jfrog.io/zpi/client/test:$IMAGE_TAG
           
