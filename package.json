@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start-without-port": "next start",
-    "start": "next start -p $PORT"
+    "start": "next start -p ${PORT:=3000}"
   },
   "dependencies": {
     "@fluentui/react": "^8.14.10",
