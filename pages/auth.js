@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Router from 'next/router'
 import styles from '../styles/auth.module.scss'
 import React from 'react'
-import {registerGet} from '../connector/authConnector'
+import {registerGet, loginGet} from '../connector/authConnector'
 
 // Fluent styling component
 const stackTokens = { childrenGap: 50 };
@@ -78,7 +78,7 @@ export default class Auth extends React.Component {
                       label="Password"
                       type="password"/>
                       <PrimaryButton {...buttonProps} text="Login" onClick={() => {
-                          registerGet(this.state.register)
+                          loginGet(this.state.register)
                           .then(res => {
                             if(res) {
                               window.localStorage.setItem('auth', res)
