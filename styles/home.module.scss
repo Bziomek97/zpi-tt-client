@@ -1,3 +1,12 @@
+@keyframes showing {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
 .homeWrapper {
     width: 80vw;
     height: 100vh;
@@ -7,4 +16,86 @@
 
 .commandBar {
     align-self: center;
+}
+
+.twittAnalysisWrapper {
+    margin-top: 12px;
+}
+
+.twittAnalysisStatisticsWrapper {
+    margin: 4px 16px;
+    padding: 12px 16px;
+    background-color: rgba(170, 169, 169, 0.281);
+
+    & > div > p {
+        font-weight: 700;
+    }
+}
+
+.diagramWrapper {
+    position: relative;
+    background-color: white;
+    border: 1px solid black;
+    height: 32px;
+}
+
+.diagram {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: showing 2.75s ease-out;
+}
+
+.postList {
+    margin: 24px 16px 6px;
+    overflow-y: auto;
+    max-height: 743px;
+}
+
+.post {
+    position: relative;
+    padding: 12px 16px;
+    background-color: rgba(170, 169, 169, 0.281);
+
+    &:first-child {
+        margin-bottom: 12px;
+    }
+
+    &:not(:first-child):not(:last-child) {
+        margin: 12px 0;
+    }
+
+    &:last-child {
+        margin-bottom: 12px;
+    }
+}
+
+.authorContainer {
+    font-weight: 500;
+    font-style: italic;
+    font-size: 13px;
+}
+
+.postContainer {
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+
+.sentimentContainer {
+    position: absolute;
+    top: 8px;
+    left: calc(100% - 24px);
+
+    & > span {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 150px;
+    }
+}
+
+.postList::-webkit-scrollbar {
+    display: none;
 }

@@ -37,7 +37,6 @@ export default function Auth() {
                     <TextField
                     label="Password"
                     type="password"/>
-                    <p className={styles.authPassForgot}>Forgot password?</p>
                     <PrimaryButton {...buttonProps} text="Login" onClick={() => {redirectToIndex()}}/>
                 </Stack>
                 <div className={styles.boarder}></div>
