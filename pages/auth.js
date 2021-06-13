@@ -100,13 +100,13 @@ export default class Auth extends React.Component {
                       label="Confirm Password"
                       type="password"/>
                       <PrimaryButton {...buttonProps} text="Register" onClick={() => {
-                        if(res) {
-                          registerGet(this.state.register)
-                            .then(res => {
+                        registerGet(this.state.register)
+                          .then((res) => {
+                            if(res) {
                               window.localStorage.setItem('auth', res)
                               this.redirectToIndex()
-                            }).catch()
-                        }
+                            }
+                          }).catch()
                         }}/>
                   </Stack>
               </Stack>
