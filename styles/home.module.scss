@@ -1,6 +1,6 @@
 @keyframes showing {
     0% {
-        width: 0%;
+        width: 0;
     }
     100% {
         width: 100%;
@@ -98,4 +98,16 @@
 
 .postList::-webkit-scrollbar {
     display: none;
+}
+
+.notLoggedWrapper {
+    display: flex;
+    height: 92vh;
+    margin: 4px 16px 12px;
+    padding: 12px 16px;
+    border: 4px dashed rgba(170, 169, 169);
+    color: rgba(170, 169, 169);
+    justify-content: center;
+    font-weight: 500;
+    align-items: center;
 }
