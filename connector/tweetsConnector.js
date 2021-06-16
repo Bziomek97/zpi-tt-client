@@ -7,7 +7,7 @@ const analyzedTweetsPost = async (hashtags) => {
         }, {
         headers: {
             'Content-Type': 'application/json',
-            'Autorization': 'x'
+            'Authorization': 'x'
         }
     })
 
