@@ -78,7 +78,7 @@ export default class Auth extends React.Component {
                       label="Password"
                       type="password"/>
                       <PrimaryButton {...buttonProps} text="Login" onClick={() => {
-                          loginGet(this.state.register)
+                          loginGet(this.state.login)
                           .then(res => {
                             if(res) {
                               window.localStorage.setItem('auth', res)
